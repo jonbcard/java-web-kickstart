@@ -1,0 +1,15 @@
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    groovy localGroovy()
+}
+
+task('create-project ') << {
+    println "Test worked"
+}
