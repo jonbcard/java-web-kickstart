@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <logger name="${group}" level="DEBUG"/>
+    <logger name="${groupId}" level="DEBUG"/>
 
     <root level="info">
         <appender-ref ref="STDOUT" />

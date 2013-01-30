@@ -3,6 +3,8 @@ package org.card.kickstart
 import groovy.text.GStringTemplateEngine;
 
 class TemplateUtils {
+    public static final JAVA_SRC = "src/main/java"
+
     protected static InputStream getResource(String templatePath) {
         return TemplateUtils.class.getResourceAsStream(templatePath)
     }
@@ -20,5 +22,27 @@ class TemplateUtils {
         }
         def f = new File(filePath)
         f << render(templatePath, model)
+
+        println "Rendered file: ${filePath}"
     }
+   /**
+    * @param className
+    *   Name of the class to generate, including package (from the base package).
+    *   Should always start with a '.' character.
+    * @param templatePath
+    *   Path of template on the classpath to generate from.
+    * @param model
+    *   Must at a minimum include 'basePackage'.
+    */
+    public static void generateClass(String className, String templatePath, Map model = [:]) {
+        int pos = className.lastIndexOf('.')
+        String fullPackage = (pos > 0 ) ? model['basePackage'] + className.substring(0, pos) : model['basePackage']
+        model['classPackage'] = fullPackage
+        model['className'] = (pos >= 0) ? className.substring(pos+1) : className
+
+        String subpath = fullPackage.replaceAll("\\.", "/")
+        String filePath = "${JAVA_SRC}/${subpath}/${model['className']}.java"
+        generateFile(filePath, templatePath, model)
+    }
+
 }
