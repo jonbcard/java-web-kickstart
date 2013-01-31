@@ -20,11 +20,18 @@ class TemplateUtils {
             String path = filePath.substring(0,pos)
             new File(path).mkdirs()
         }
-        def f = new File(filePath)
-        f << render(templatePath, model)
+        new File(filePath).text = render(templatePath, model)
 
         println "Rendered file: ${filePath}"
     }
+
+    public static void appendToFile(String filePath, String templatePath, Map model = [:]) {
+        def f = new File(filePath)
+        f.append(render(templatePath, model))
+
+        println "Appended to: ${filePath}"
+    }
+
    /**
     * @param className
     *   Name of the class to generate, including package (from the base package).

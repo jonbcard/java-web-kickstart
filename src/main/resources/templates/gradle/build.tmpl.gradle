@@ -1,0 +1,16 @@
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core', version: '3.2.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '3.2.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version: '3.2.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '3.2.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '3.2.1.RELEASE'
+}
+

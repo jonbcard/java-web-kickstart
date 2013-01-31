@@ -18,8 +18,11 @@ class WebProjectPlugin implements Plugin<Project> {
             // TODO: validate and strip illegal characters
             model['basePackage'] = "${model['groupId']}.${model['artifact']}"
 
+            TemplateUtils.appendToFile("build.gradle", "/templates/gradle/build.tmpl.gradle", model)
+
             TemplateUtils.generateFile( "src/main/resources/logback.xml", "/templates/logback/logback.tmpl.xml", model)
             TemplateUtils.generateClass(".web.WebConfig", "/templates/spring/WebConfig.tmpl.java", model)
+
         }
     }
 }
