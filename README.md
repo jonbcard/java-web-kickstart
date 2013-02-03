@@ -3,7 +3,7 @@ Enterprise: meet the modern web. I think you two will get along just fine.
 # java-web-kickstart
 
 The apparent attitude that building 'enterprise' applications should dictate using draconian tools and
-producing unusable interfaces is disturbing. Complexity and scale of a project are not am excuse for making both
+producing unusable interfaces is disturbing. Complexity and scale of a project are not an excuse for making both
 developers and users miserable. Nor is historical precedent a reason to continue using archaic practices.
 
 The purpose of this tool is to help kick-start big Java-based projects that **don't suck** using blueprints

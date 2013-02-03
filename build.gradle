@@ -9,9 +9,3 @@ dependencies {
     compile gradleApi()
     groovy localGroovy()
 }
-
-//project.apply(plugin: org.card.kickstart.WebProjectPlugin)
-
-//task('create-project') << {
-//    println org.card.kickstart.ShellCommands.prompt("What up?", "nothing");
-//}

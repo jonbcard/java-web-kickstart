@@ -7,10 +7,27 @@ repositories {
 }
 
 dependencies {
+
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+
+    // spring
     compile group: 'org.springframework', name: 'spring-core', version: '3.2.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-context', version: '3.2.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-tx', version: '3.2.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '3.2.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '3.2.1.RELEASE'
-}
 
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.2.0.RELEASE'
+
+    compile group: 'javax.inject', name:'javax.inject', version: '1'
+
+    // hibernate
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.1.9.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.1.9.Final'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.3.1.Final'
+
+
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '1.8.0.10'
+
+    compile group: 'commons-pool', name: 'commons-pool', version: '1.5.6'
+}

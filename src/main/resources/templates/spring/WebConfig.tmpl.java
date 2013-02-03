@@ -1,4 +1,4 @@
-package ${classPackage}.${className};
+package ${classPackage};
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.WebContentInterceptor;
 @Configuration
 @EnableWebMvc()
 @ComponentScan("${basePackage}")
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class ${className} extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

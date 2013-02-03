@@ -21,7 +21,18 @@ class WebProjectPlugin implements Plugin<Project> {
             TemplateUtils.appendToFile("build.gradle", "/templates/gradle/build.tmpl.gradle", model)
 
             TemplateUtils.generateFile( "src/main/resources/logback.xml", "/templates/logback/logback.tmpl.xml", model)
+
+            // spring
             TemplateUtils.generateClass(".web.WebConfig", "/templates/spring/WebConfig.tmpl.java", model)
+            TemplateUtils.generateClass(".web.WebInitializer", "/templates/spring/WebInitializer.tmpl.java", model)
+            TemplateUtils.generateClass(".web.UserController", "/templates/spring/UserController.tmpl.java", model)
+
+            // hibernate
+            TemplateUtils.generateFile( "src/main/resources/META-INF/persistence.xml", "/templates/hibernate/persistence.tmpl.xml", model)
+            TemplateUtils.generateClass(".domain.User", "/templates/hibernate/User.tmpl.java", model)
+
+            // web
+            TemplateUtils.generateFile( "src/main/webapp/index.html", "/templates/html/index.tmpl.html", model)
 
         }
     }
