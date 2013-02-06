@@ -33,7 +33,7 @@ class WebProjectPlugin implements Plugin<Project> {
 
             // web
             TemplateUtils.generateFile( "src/main/webapp/index.html", "/templates/html/index.tmpl.html", model)
-
+            TemplateUtils.generateStaticFile("src/main/webapp/livereload.js")
         }
     }
 }

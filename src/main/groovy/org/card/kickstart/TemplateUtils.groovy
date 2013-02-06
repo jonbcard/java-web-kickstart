@@ -14,6 +14,17 @@ class TemplateUtils {
         return new GStringTemplateEngine().createTemplate(template).make(model).toString()
     }
 
+    public static void generateStaticFile(String filePath, String src) {
+        int pos = filePath.lastIndexOf('/')
+        if (pos > 0) {
+            String path = filePath.substring(0,pos)
+            new File(path).mkdirs()
+        }
+        new File(filePath).text = getResource(filePath).text
+
+        println "Wrote static file: ${filePath}"
+    }
+
     public static void generateFile(String filePath, String templatePath, Map model = [:]) {
         int pos = filePath.lastIndexOf('/')
         if (pos > 0) {
