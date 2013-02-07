@@ -10,6 +10,7 @@ class WebProjectPlugin implements Plugin<Project> {
 
     void apply(Project project) {
         project.task('create-project', description: 'Creates the skeleton for a new web project') << {
+
             def model = [:]
             model['groupId'] = ShellCommands.prompt("Group", "com.example")
             model['artifact'] = ShellCommands.prompt("Artifact Id", "myapp")
@@ -31,9 +32,13 @@ class WebProjectPlugin implements Plugin<Project> {
             TemplateUtils.generateFile( "src/main/resources/META-INF/persistence.xml", "/templates/hibernate/persistence.tmpl.xml", model)
             TemplateUtils.generateClass(".domain.User", "/templates/hibernate/User.tmpl.java", model)
 
-            // web
+            // html
             TemplateUtils.generateFile( "src/main/webapp/index.html", "/templates/html/index.tmpl.html", model)
-            TemplateUtils.generateStaticFile("src/main/webapp/livereload.js")
+            TemplateUtils.generateFile( "src/main/webapp/views/main.html", "/templates/html/main.tmpl.html", model)
+
+            // javascript
+            TemplateUtils.generateStaticFile( "src/main/webapp/js/app.js", "/templates/angular/app.tmpl.js")
+            TemplateUtils.generateStaticFile( "src/main/webapp/js/main.js", "/templates/angular/main.tmpl.js")
         }
     }
 }

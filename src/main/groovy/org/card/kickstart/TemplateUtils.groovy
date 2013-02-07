@@ -20,7 +20,7 @@ class TemplateUtils {
             String path = filePath.substring(0,pos)
             new File(path).mkdirs()
         }
-        new File(filePath).text = getResource(filePath).text
+        new File(filePath).text = getResource(src).text
 
         println "Wrote static file: ${filePath}"
     }

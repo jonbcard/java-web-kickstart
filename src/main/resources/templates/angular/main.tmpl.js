@@ -1,0 +1,7 @@
+'use strict';
+
+app.controller('MainCtrl', function($scope) {
+
+    $scope.name = "Jon Card";
+
+});
